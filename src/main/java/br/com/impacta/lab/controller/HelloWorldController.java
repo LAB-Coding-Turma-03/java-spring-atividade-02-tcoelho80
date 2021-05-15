@@ -23,5 +23,70 @@ public class HelloWorldController {
 	
 		return ResponseEntity.ok(retorno);
 	}
+
+	@GetMapping("numeros")
+	public ResponseEntity<String> helloNumero(@RequestParam(name="numero", required=false) int numero) {
+		//Exemplo http://localhost:8080/atividades/numeros?numero=15
+
+		int numeroHardCode = 50;
+	
+		return ResponseEntity.ok(numero != numeroHardCode ? "Diferente": "Igual" );
+	}
+
+	@GetMapping("numerosif")
+	public ResponseEntity<String> helloNumeroIf(@RequestParam(name="numero", required=false) int numero) {
+		//Exemplo http://localhost:8080/atividades/numeros?numero=15
+				
+		int numeroHardCode = 50;
+		var retorno = "Diferente";
+
+		if (numeroHardCode == numero){
+			retorno = "Igual";
+		}
+		return ResponseEntity.ok(retorno);
+	}
+
+	@GetMapping("numeroscondiicionalif")
+	public ResponseEntity<String> helloNumeroCondicionalif(@RequestParam(name="numero", required=false) int numero) {
+		//http://localhost:8080/atividades/helloNumeroCondicionalif?numero=15
+				
+		int numeroHardCode = 50;
+		var retorno = new String();
+
+		if (numeroHardCode != numero && numeroHardCode > numero){
+			retorno = "Número diferente e menor";
+		}else if (numeroHardCode != numero && numeroHardCode < numero){
+			retorno = "Número diferente e maior";
+		}else if (numeroHardCode == numero){
+			retorno = "Número exatamente igual";
+		}
+		return ResponseEntity.ok(retorno);
+	}
+
+	
+	@GetMapping("swithcase")
+	public ResponseEntity<String> swithcase(@RequestParam(name="nome", required=false) String nome) {
+		//http://localhost:8080/atividades/swithcase?nome=Thiago
+		var retorno = new String();
+
+		switch (nome){
+			case "Thiago":
+				retorno = "Escreveu um nome de um aluno";
+				break;
+			case "Felipe":
+				retorno = "Escreveu um Nome do Professor";
+				break;
+			case "Brasileiro":
+				retorno = "Escreveu um nome de um aluno";
+				break;
+			default:
+				retorno = "Nome não reconhecido";
+				break;
+		}
+		
+		return ResponseEntity.ok(retorno);
+	}
+
+	
 	
 }
