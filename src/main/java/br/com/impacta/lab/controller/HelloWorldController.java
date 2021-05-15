@@ -19,9 +19,9 @@ public class HelloWorldController {
 		//Considerando a dica acima, implemente seu código para que o programa retorne a 
 		//palavra Hello world concatenada com o nome.
 		//Exmeplo de resposta: Hello world felipe !
-		
-		
-		return ResponseEntity.ok("Hello world !");
+		String retorno = new String("Hello world " + nome + "!");
+	
+		return ResponseEntity.ok(retorno);
 	}
 	
 }
