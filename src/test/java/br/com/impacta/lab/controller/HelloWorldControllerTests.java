@@ -41,14 +41,14 @@ public class HelloWorldControllerTests {
 	
 	@Test
 	public void a2_helloWorldTest() throws Exception {
-		RequestBuilder request = get("/atividades/hello").queryParam("nome", "Thiago")
+		RequestBuilder request = get("/atividades/hello").queryParam("nome", "THIAGO")
 					.accept(MediaType.TEXT_PLAIN);
 		
 		MvcResult result = mvc.perform(request).andExpect(status().isOk()).andReturn();
 		
 		String response = result.getResponse().getContentAsString();
 		
-		assertEquals("Hello world Thiago!".toUpperCase(), response.toUpperCase());
+		assertEquals("Hello world THIAGO!".toUpperCase(), response.toUpperCase());
 		
 	}
 	
